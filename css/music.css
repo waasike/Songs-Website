@@ -1,0 +1,306 @@
+:root {
+
+    /* VARIABLES */
+  
+    /* colors */
+    --flourescent-blue: hsl(219, 68%, 32%);
+    --heliotrope-gray: hsl(253, 15%, 70%);
+    --russian-violet: hsl(252, 80%, 16%);
+    --dark-violet: hsl(252, 100%, 12%);
+    --space-cadet: hsl(247, 43%, 20%);
+    --blue-ryb: hsl(221, 100%, 50%);
+    --white: hsl(0, 0%, 100%);
+  
+    --gradient: linear-gradient(to right, var(--flourescent-blue), var(--blue-ryb));
+  
+  
+    /* typography */
+  
+  
+    --ff-josefin: 'Josefin sans', sans-serif;
+  
+    --fs-1: 25px;
+    --fs-2: 18px;
+    --fs-3: 17px;
+    --fs-4: 15px;
+  
+    --fw-500: 500;
+    --fw-700: 700;
+  
+  
+    /* transition */
+  
+  
+    --transition: 0.25s ease-in-out;
+  
+  
+    /* spacing */
+  
+  
+    --section-padding: 30px;
+  
+  }
+  
+  
+  
+  /*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+  
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a,
+  img,
+  span,
+  input,
+  button,
+  ion-icon {
+    display: block;
+  }
+  
+  button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input {
+    font: inherit;
+    border: none;
+    width: 100%;
+  }
+  
+  :focus {
+    outline-offset: 4px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--dark-violet);
+    color: var(--white);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--dark-violet);
+    border-left: 1px solid var(--space-cadet);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.8);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 100%, 0.6);
+  }
+  
+  
+  
+  /* RE-USED STYLES */
+  
+  .btn {
+    color: var(--white);
+    font-size: var(--fs-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 10px;
+    border-radius: 4px;
+  }
+  
+  .btn-primary {
+    background: var(--gradient);
+    background-size: 500%;
+    background-position: right;
+    padding: 6px 9px;
+    gap: 8px;
+    transition: background var(--transition);
+    position: absolute;
+    margin-top: 3%;
+  }
+  
+  .btn-primary:is(:hover, :focus) {
+    background-position: left;
+  }
+  
+  .btn-primary>ion-icon {
+    font-size: 18px;
+  }
+  
+  .btn-primary>span {
+    margin-top: 3px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .h3 {
+    color: var(--white);
+    font-size: var(--fs-2);
+    line-height: 1.5;
+  }
+  
+  
+  
+  
+  
+  /* MUSIC SECTION EDITS */
+  
+  .music {
+    padding: var(--section-padding) 0;
+  }
+  
+  .music-list {
+    display: grid;
+    gap: 250px;
+    margin-left: 7%;
+    margin-top: 5%;
+  }
+  
+  .music-card {
+    border-radius: 4px;
+  }
+  
+  .card-banner {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    z-index: 1;
+  }
+  
+  
+  .card-banner img {
+    width: 350px;
+  }
+  
+  .card-title{
+    font-family: monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  
+
+  #audioPlayer {
+    margin-left: 8%;
+    margin-top: 15px;
+  }
+  
+
+  
+  /* responsive for larger than 768px */
+  
+  
+  @media (min-width: 768px) {
+  
+    :root {
+  
+      /* typography */
+  
+  
+      --fs-1: 30px;
+      --fs-2: 20px;
+      --fs-4: 18px;
+  
+    }
+
+  
+  
+    /* MUSIC SECTION EDITS */
+  
+    .music-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+  
+  
+    
+  }
+  
+  
+  
+  
+  
+  /* responsive for larger than 1024px */
+  
+  
+  @media (min-width: 1024px) {
+  
+    /* MUSIC SRCTION EDITS */
+  
+    .music-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  
+  }
+  
+  
+  
+  /* responsive for larger than 1200px */
+  
+  
+  @media (min-width: 1200px) {
+  
+    :root {
+  
+      /* spacing */
+  
+  
+      --section-padding: 60px;
+  
+    }
+
+  
+  
+    /* MUSIC SECTION EDITS */
+  
+    .music-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+  
+  
+    /* FOOTER SECTION EDITS */
+  
+    .footer-link-title {
+      --fs-2: 22px;
+      margin-bottom: 30px;
+    }
+  
+    .social-title {
+      margin-left: auto;
+      margin-bottom: 35px;
+    }
+  
+    .social-link {
+      width: 45px;
+      height: 45px;
+      font-size: 22px;
+    }
+  
+  }

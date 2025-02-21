@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Abraham Moruri"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Details</title>
+    <title>PlayPal</title>
+    <!--Autor: Abraham Moruri (github.com/abraham-ny)-->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,13 +13,14 @@
             background-size: cover;
             color: white;
             padding: 20px;
+            background-color: hsl(252, 80%, 16%);
         }
         .container { max-width: 600px; margin: auto; }
-        img { width: 200px; height: 200px; border-radius: 10px; }
+        img { width: 360px; height: 230px; border-radius: 10px; }
         audio { width: 100%; margin-top: 10px; }
     </style>
 </head>
-<body bgcolor="black">
+<body>
 
     <div class="container">
         <h2 id="song-title">Loading...</h2>
@@ -46,7 +49,7 @@
             document.getElementById("song-title").innerText = title;
             document.getElementById("song-image").src = image;
             //document.body.style.backgroundImage = `url('${bg}')`;
-            document.title = title+" - dilly mitch : PlayPal";
+            document.title = title;//now playing on PlayPal
             
             const audioPlayer = document.getElementById("audio-player");
             const audioSource = document.getElementById("audio-source");

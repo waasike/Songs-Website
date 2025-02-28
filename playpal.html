@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Abraham Moruri"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayPal</title>
+    <!--Autor: Abraham Moruri (github.com/abraham-ny)-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+            background-color: hsl(252, 80%, 16%);
+        }
+        .container { max-width: 600px; margin: auto; }
+        img { width: 360px; height: 230px; border-radius: 10px; }
+        audio { width: 100%; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="song-title">Loading...</h2>
+        <img id="song-image" src="" alt="Album Art">
+        <audio id="audio-player" controls autoplay>
+            <source id="audio-source" src="" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <p id="duration">Duration: Loading...</p>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                title: params.get("title") || "Unknown Song",
+                file: params.get("file") || "",
+                image: params.get("image") || "",
+                bg: params.get("bg") || ""
+            };
+        }
+
+        function updateSongDetails() {
+            const { title, file, image, bg } = getQueryParams();
+            
+            document.getElementById("song-title").innerText = title;
+            document.getElementById("song-image").src = image;
+            //document.body.style.backgroundImage = `url('${bg}')`;
+            document.title = title;//now playing on PlayPal
+            
+            const audioPlayer = document.getElementById("audio-player");
+            const audioSource = document.getElementById("audio-source");
+
+            audioSource.src = file;
+            audioPlayer.load();
+
+            // Get duration when metadata loads
+            audioPlayer.onloadedmetadata = function() {
+                document.getElementById("duration").innerText = `Duration: ${Math.floor(audioPlayer.duration)}s`;
+            };
+        }
+
+        window.onload = updateSongDetails;
+    </script>
+
+</body>
+</html>
